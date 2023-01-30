@@ -9,8 +9,7 @@ async function findPayment(ticketId: number) {
 
 async function createPayment(price: number, paymentData: Payment) {
   const { ticketId, cardData } = paymentData
-  const cardLastDigits = cardData.number.slice(-3)
-  console.log(cardLastDigits)
+  const cardLastDigits = cardData.number.slice(-4)
 
   return prisma.payment.create({
    data: {

@@ -37,6 +37,7 @@ import { Payment } from "@/protocols";
     }
 
     const payment = await paymentRepository.createPayment(ticket.TicketType.price, paymentData)
+    console.log(payment)
   
     return payment;
   }
