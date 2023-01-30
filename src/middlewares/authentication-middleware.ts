@@ -31,7 +31,7 @@ export async function authenticateToken(req: AuthenticatedRequest, res: Response
 }
 
 function generateUnauthorizedResponse(res: Response) {
-  res.status(httpStatus.UNAUTHORIZED).send(unauthorizedError());
+  res.status(httpStatus.UNAUTHORIZED).send(unauthorizedError(401, "Unauthorized"));
 }
 
 export type AuthenticatedRequest = Request & JWTPayload;
