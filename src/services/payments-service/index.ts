@@ -2,6 +2,7 @@ import { notFoundError, badRequestError, unauthorizedError } from "@/errors";
 import paymentRepository from "@/repositories/payment-repository";
 import ticketRepository from "@/repositories/ticket-repository";
 import { Payment } from "@/protocols";
+import ticketsService from "../tickets-service";
 
  async function getPayment(ticketId: number, userId: number) {
 
@@ -37,7 +38,7 @@ import { Payment } from "@/protocols";
     }
 
     const payment = await paymentRepository.createPayment(ticket.TicketType.price, paymentData)
-    console.log(payment)
+    await ticketRepository.updateStatus(ticket.id)
   
     return payment;
   }
